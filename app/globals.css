@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --space-navy: #0b0e28;
+  --neon-cyan: #00ffd1;
+  --soft-magenta: #ff6fe7;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-inter), sans-serif;
+  background-color: var(--space-navy);
+  color: white;
+}
+
+.font-space-mono {
+  font-family: var(--font-space-mono), monospace;
+}
+
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Custom Animations */
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch 0.3s infinite;
+  color: var(--neon-cyan);
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch 0.3s infinite reverse;
+  color: var(--soft-magenta);
+  z-index: -2;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--neon-cyan);
+  white-space: nowrap;
+  animation: typewriter 2s steps(20, end);
+}
+
+.glow-neon {
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.glassmorphism-card {
+  background: rgba(11, 14, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 209, 0.2);
+}
+
+.halftone-effect {
+  filter: contrast(1.2) brightness(1.1);
+  background: radial-gradient(circle, transparent 20%, rgba(0, 255, 209, 0.1) 20%);
+  background-size: 4px 4px;
+}
+
+.project-card {
+  background: linear-gradient(135deg, rgba(11, 14, 40, 0.9) 0%, rgba(0, 255, 209, 0.05) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.code-editor-card {
+  background: linear-gradient(135deg, rgba(11, 14, 40, 0.95) 0%, rgba(0, 0, 0, 0.8) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Utility Classes */
+.bg-space-navy {
+  background-color: var(--space-navy);
+}
+
+.text-neon-cyan {
+  color: var(--neon-cyan);
+}
+
+.text-soft-magenta {
+  color: var(--soft-magenta);
+}
+
+.border-neon-cyan {
+  border-color: var(--neon-cyan);
+}
+
+.border-soft-magenta {
+  border-color: var(--soft-magenta);
+}
+
+.bg-neon-cyan {
+  background-color: var(--neon-cyan);
+}
+
+.bg-soft-magenta {
+  background-color: var(--soft-magenta);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--space-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--soft-magenta);
+}
+
+/* Focus Styles for Accessibility */
+*:focus {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glitch-text {
+    font-size: 2.5rem;
+  }
+
+  .typewriter {
+    font-size: 1.25rem;
+  }
+}
