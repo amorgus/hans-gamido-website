@@ -20,7 +20,7 @@ export default function About() {
             <div className="relative w-80 h-80 mx-auto">
               {/* TODO: Replace with actual portrait */}
               <Image
-                src="/placeholder.svg?height=320&width=320"
+                src="/amogus.webp?height=320&width=320"
                 alt="Hans Gamido Portrait"
                 width={320}
                 height={320}
